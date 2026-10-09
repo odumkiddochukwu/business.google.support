@@ -1,0 +1,1233 @@
+*{box-sizing:border-box}
+body{
+  margin:0;
+  min-height:100vh;
+  background:#f1f5fb;
+  color:#202124;
+  font-family:Arial,Helvetica,sans-serif;
+}
+.page{
+  width:min(960px,calc(100% - 32px));
+  margin:70px auto 0;
+}
+.card{
+  min-height:400px;
+  background:#fff;
+  border-radius:24px;
+  padding:42px 42px 36px;
+  box-shadow:0 1px 2px rgba(0,0,0,.05);
+}
+.logo{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:28px;
+}
+.content{
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:60px;
+  align-items:start;
+}
+h1{font-size:38px;font-weight:400;margin:0 0 12px}
+p{margin:0 0 20px;font-size:16px}
+.notice{
+  max-width:350px;
+  color:#5f6368;
+  font-size:13px;
+  line-height:1.5;
+}
+form{
+  display:flex;
+  flex-direction:column
+}
+label{
+  font-size:13px;
+  color:#5f6368;
+  margin:0 0 7px
+}
+input{
+  width:100%;
+  height:56px;
+  border:1px solid #747474;
+  border-radius:5px;
+  padding:0 15px;
+  font-size:16px;
+  margin-bottom:18px;
+  outline:none;
+}
+input:focus{
+  border:2px solid #1a73e8
+}
+#forgot-email a{
+  color:#1a73e8;
+  font-weight:bold;
+  font-size:14px;
+  width:100px;
+  text-decoration:none;
+}
+#forgot-email a:hover{
+  background-color:rgb(225, 237, 252);
+  padding:10px;
+  border-radius:15px;
+
+}
+#txt1{
+  font-size:14px;
+  color:#5f6368;
+}
+.a2{
+  font-size:14px;
+  color:#1a73e8;
+  text-decoration: none;
+}
+.a2:hover{
+  text-decoration: underline;
+}
+.button-container1{
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-start;
+  gap:10px;
+}
+.button-container2{
+  display:flex;
+  flex-direction:row;
+  justify-content:flex-end;
+  gap:10px;
+}
+.button-container1 a{
+    text-decoration:none;
+     color:#1a73e8;
+}
+.button2{
+  align-self:flex-end;
+  border:0;
+  border-radius:24px;
+  background-color:#fff;
+  color:#1a73e8;
+  font-weight:600;
+  font-size:15px;
+  padding:13px 25px;
+  cursor:pointer;
+}
+.button3{
+  align-self:flex-end;
+  margin:0;
+  border:0;
+  border-radius:24px;
+  background:#1a73e8;
+  color:#fff;
+  font-weight:600;
+  font-size:15px;
+  padding:13px 25px;
+  cursor:pointer;
+}
+.button1{
+    align-self:flex-start;
+  border:0;
+  border-radius:10px;
+  background-color:#fff;
+  font-weight: bold;
+  font-size:14px;
+  padding:4px 6px;
+  cursor:pointer;
+}
+.button2:hover{
+  background-color:rgb(245, 249, 252);
+}
+.button3:hover{
+  background-color:#1769d1;
+}
+.button1:hover{
+  background-color:rgb(245, 249, 252);
+}
+/* Show password */
+.show-password {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+
+    margin-top: 12px;
+
+    cursor: pointer;
+    user-select: none;
+
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #202124;
+}
+
+/* Hide the actual checkbox */
+.show-password input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* Custom checkbox */
+.custom-checkbox {
+    position: relative;
+
+    width: 18px;
+    height: 18px;
+
+    margin-right: 18px;
+
+    border: 2px solid #5f6368;
+    border-radius: 2px;
+
+    background: #fff;
+
+    box-sizing: border-box;
+}
+
+/* Checked checkbox */
+.show-password input:checked + .custom-checkbox {
+    background: #1a73e8;
+    border-color: #1a73e8;
+}
+
+/* Checkmark */
+.show-password input:checked + .custom-checkbox::after {
+    content: "";
+
+    position: absolute;
+
+    left: 4px;
+    top: 1px;
+
+    width: 5px;
+    height: 10px;
+
+    border: solid #fff;
+    border-width: 0 2px 2px 0;
+
+    transform: rotate(45deg);
+}
+
+/* Text */
+.show-password-text {
+    line-height: 18px;
+}
+
+/* Hover */
+.show-password:hover .custom-checkbox {
+    border-color: #1a73e8;
+}
+footer{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 16px;
+  color:#5f6368;
+  font-size:12px;
+}
+nav{
+  display:flex;
+  gap:24px}
+.a1{
+text-decoration:none;
+}
+.nav-links-container{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:20px;
+    
+}
+.nav-links{
+    border:none;
+    padding:7px 10px;
+    background-color:#f1f5fb;
+     border-radius:7px;
+}
+.nav-links a{
+    font-size:12px;
+    color:#3c4043;
+    text-decoration:none;
+}
+.nav-links:hover{
+     background-color:rgb(226, 221, 221);
+}
+@media(max-width:760px){
+  .page{margin-top:20px}
+  .card{padding:30px 24px}
+  .content{grid-template-columns:1fr;gap:20px}
+  .card{min-height:auto}
+}
+/* ==========================================
+   EMAIL FIELD
+========================================== */
+
+.email-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================
+   INPUT
+========================================== */
+
+.email-field input {
+    width: 100%;
+    height: 56px;
+
+    margin: 0;
+
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #747474;
+    border-radius: 5px;
+
+    outline: none;
+
+    background: #fff;
+
+    color: #202124;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+    transition: border 0.1s ease;
+}
+
+
+/* ==========================================
+   LABEL
+========================================== */
+
+.email-field label {
+    position: absolute;
+
+    left: 12px;
+    top: 28px;
+
+    transform: translateY(-50%);
+
+    margin: 0;
+
+    padding: 0 4px;
+
+    background: #fff;
+
+    color: #5f6368;
+
+    font-size: 16px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transition:
+        top 0.1s ease,
+        font-size 0.1s ease,
+        color 0.1s ease;
+}
+
+
+/* ==========================================
+   FOCUSED
+========================================== */
+
+.email-field.focused input {
+    border: 2px solid #1a73e8;
+}
+
+.email-field.focused label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #1a73e8;
+}
+
+
+/* ==========================================
+   HAS VALUE
+========================================== */
+
+.email-field.has-value label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #5f6368;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.email-field.error input {
+    border: 2px solid #d93025;
+}
+
+.email-field.error label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #d93025;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.email-field .error-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 7px;
+
+    color: #d93025;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* Error circle */
+
+.email-field .error-message span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #d93025;
+
+    color: white;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+/* ==========================================
+   PASSWORD FIELD
+========================================== */
+
+.user-code-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* INPUT */
+.user-code-field input {
+    width: 100%;
+    height: 56px;
+
+    margin: 0;
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #747474;
+    border-radius: 5px;
+
+    outline: none;
+
+    background: #fff;
+
+    color: #202124;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+    transition: border 0.1s ease;
+}
+
+
+/* LABEL */
+
+.user-code-field label {
+    position: absolute;
+
+    left: 12px;
+    top: 28px;
+
+    transform: translateY(-50%);
+
+    padding: 0 4px;
+
+    background: #fff;
+
+    color: #5f6368;
+
+    font-size: 16px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transition:
+        top 0.1s ease,
+        font-size 0.1s ease,
+        color 0.1s ease;
+}
+
+
+/* ==========================================
+   FOCUS
+========================================== */
+
+.user-code-field.focused input {
+    border: 2px solid #1a73e8;
+}
+
+.user-code-field.focused label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #1a73e8;
+}
+
+
+/* ==========================================
+   HAS VALUE
+========================================== */
+
+.user-code-field.has-value label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #5f6368;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.user-code-field.error input {
+    border: 2px solid #d93025;
+}
+.user-code-field.error label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #d93025;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.user-code-field .error-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 7px;
+
+    color: #d93025;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* ERROR ICON */
+
+.user-code-field .error-message span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #d93025;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+.user-code-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* INPUT */
+.user-code-field input {
+    width: 100%;
+    height: 56px;
+
+    margin: 0;
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #747474;
+    border-radius: 5px;
+
+    outline: none;
+
+    background: #fff;
+
+    color: #202124;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+    transition: border 0.1s ease;
+}
+
+
+/* LABEL */
+
+.user-code-field label {
+    position: absolute;
+
+    left: 12px;
+    top: 28px;
+
+    transform: translateY(-50%);
+
+    padding: 0 4px;
+
+    background: #fff;
+
+    color: #5f6368;
+
+    font-size: 16px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transition:
+        top 0.1s ease,
+        font-size 0.1s ease,
+        color 0.1s ease;
+}
+
+
+/* ==========================================
+   FOCUS
+========================================== */
+
+.user-code-field.focused input {
+    border: 2px solid #1a73e8;
+}
+
+.user-code-field.focused label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #1a73e8;
+}
+
+
+/* ==========================================
+   HAS VALUE
+========================================== */
+
+.user-code-field.has-value label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #5f6368;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.user-code-field.error input {
+    border: 2px solid #d93025;
+}
+
+.user-code-field.error label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #d93025;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.user-code-field .error-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 7px;
+
+    color: #d93025;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* ERROR ICON */
+
+.user-code-field .error-message span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #d93025;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+
+/* ==========================================
+   PASSWORD FIELD
+========================================== */
+
+.password-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* INPUT */
+.password-field input {
+    width: 100%;
+    height: 56px;
+
+    margin: 0;
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #747474;
+    border-radius: 5px;
+
+    outline: none;
+
+    background: #fff;
+
+    color: #202124;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+    transition: border 0.1s ease;
+}
+
+
+/* LABEL */
+
+.password-field label {
+    position: absolute;
+
+    left: 12px;
+    top: 28px;
+
+    transform: translateY(-50%);
+
+    padding: 0 4px;
+
+    background: #fff;
+
+    color: #5f6368;
+
+    font-size: 16px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transition:
+        top 0.1s ease,
+        font-size 0.1s ease,
+        color 0.1s ease;
+}
+
+
+/* ==========================================
+   FOCUS
+========================================== */
+
+.password-field.focused input {
+    border: 2px solid #1a73e8;
+}
+
+.password-field.focused label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #1a73e8;
+}
+
+
+/* ==========================================
+   HAS VALUE
+========================================== */
+
+.password-field.has-value label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #5f6368;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.password-field.error input {
+    border: 2px solid #d93025;
+}
+.password-field.error label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #d93025;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.password-field .error-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 7px;
+
+    color: #d93025;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* ERROR ICON */
+
+.password-field .error-message span {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #d93025;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+.password-field {
+    position: relative;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+
+/* INPUT */
+.password-field input {
+    width: 100%;
+    height: 56px;
+
+    margin: 0;
+    padding: 0 15px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #747474;
+    border-radius: 5px;
+
+    outline: none;
+
+    background: #fff;
+
+    color: #202124;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+
+    transition: border 0.1s ease;
+}
+
+
+/* LABEL */
+
+.password-field label {
+    position: absolute;
+
+    left: 12px;
+    top: 28px;
+
+    transform: translateY(-50%);
+
+    padding: 0 4px;
+
+    background: #fff;
+
+    color: #5f6368;
+
+    font-size: 16px;
+    line-height: 1;
+
+    pointer-events: none;
+
+    transition:
+        top 0.1s ease,
+        font-size 0.1s ease,
+        color 0.1s ease;
+}
+
+
+/* ==========================================
+   FOCUS
+========================================== */
+
+.password-field.focused input {
+    border: 2px solid #1a73e8;
+}
+
+.password-field.focused label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #1a73e8;
+}
+
+
+/* ==========================================
+   HAS VALUE
+========================================== */
+
+.password-field.has-value label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #5f6368;
+}
+
+
+/* ==========================================
+   ERROR
+========================================== */
+
+.password-field.error input {
+    border: 2px solid #d93025;
+}
+
+.password-field.error label {
+    top: 0;
+
+    font-size: 12px;
+
+    color: #d93025;
+}
+
+
+/* ==========================================
+   ERROR MESSAGE
+========================================== */
+
+.password-field .error-message {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    margin-top: 7px;
+
+    color: #d93025;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    font-size: 13px;
+}
+
+
+/* ERROR ICON */
+
+.password-field .error-message span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+
+    margin: 0;
+
+    border-radius: 50%;
+
+    background: #d93025;
+
+    color: white;
+
+    font-size: 10px;
+
+    font-weight: bold;
+}
+/* =================================
+   LANGUAGE DROPDOWN
+   ================================= */
+
+.language-dropdown {
+    position: relative;
+    width: 184px;
+}
+
+
+/* Button */
+
+.language-button {
+    width: 184px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 12px 0 14px;
+    background-color: #f1f5fb;
+    border:none;
+
+    border-radius: 8px;
+
+    color: #484a52;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+.language-button:hover{
+  background-color:rgb(233, 226, 226);
+}
+/* Blue border when clicked */
+
+.language-button:focus {
+    outline: none;
+
+    border-color: #1a73e8;
+
+    box-shadow: 0 0 0 1px #1a73e8;
+}
+
+
+/* Language name */
+
+#current-language {
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    max-width: 145px;
+}
+
+
+/* Arrow */
+
+.language-arrow {
+    font-size: 9px;
+
+    color: #5f6368;
+
+    transition: transform 0.15s ease;
+}
+
+
+/* Rotate arrow */
+
+.language-dropdown.open .language-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* =================================
+   DROPDOWN MENU
+   ================================= */
+
+.language-menu {
+    position: absolute;
+
+    left: 0;
+
+    bottom: 44px;
+
+    width: 184px;
+
+    max-height: 508px;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 2px 8px rgba(60, 64, 67, 0.25),
+        0 1px 3px rgba(60, 64, 67, 0.15);
+
+    display: none;
+
+    z-index: 1000;
+}
+
+
+/* Open menu */
+
+.language-dropdown.open .language-menu {
+    display: block;
+}
+
+
+/* =================================
+   LANGUAGE OPTIONS
+   ================================= */
+
+.language-option {
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    padding: 0 16px;
+
+    box-sizing: border-box;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: #202124;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* Hover */
+
+.language-option:hover {
+    background: #f1f3f4;
+}
+
+
+/* Selected language */
+
+.language-option.selected {
+    background: #d2e3fc;
+}
+
+
+/* =================================
+   SCROLLBAR
+   ================================= */
+
+.language-menu::-webkit-scrollbar {
+    width: 14px;
+}
+
+.language-menu::-webkit-scrollbar-track {
+    background: #f1f3f4;
+}
+
+.language-menu::-webkit-scrollbar-thumb {
+    background: #9aa0a6;
+
+    border-radius: 8px;
+
+    border: 3px solid #f1f3f4;
+}
+
