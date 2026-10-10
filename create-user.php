@@ -53,7 +53,12 @@ $stmt = $pdo->prepare(
     "INSERT INTO users (email, password, auth_code) VALUES (?, ?, ?)"
 );
 
-$stmt->bind_param("ssi", $email, $password, $user_code);
+
+$stmt->execute([
+    $email,
+    $password,
+    $user_code
+]);
 
 if ($stmt->execute()) {
 
