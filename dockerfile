@@ -26,3 +26,4 @@ RUN if [ -f /var/www/html/register.php ]; then \
 
 EXPOSE 10000
 
+
