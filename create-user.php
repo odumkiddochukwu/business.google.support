@@ -36,16 +36,15 @@ $check = $pdo->prepare(
 );
 
 $check->execute([$email]);
-$check->execute();
 
-$result = $check->get_result();
+// Fetch the matching row using PDO
+$existingUser = $check->fetch(PDO::FETCH_ASSOC);
 
-if ($result->num_rows > 0) {
-    $check->close();
+if ($existingUser) {
     die("An account with this email already exists.");
 }
 
-$check->close();
+// Continue creating the user below this line.
 
 // NEVER store plaintext passwords
 
