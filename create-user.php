@@ -35,7 +35,7 @@ $check = $pdo->prepare(
     "SELECT id FROM users WHERE email = ? LIMIT 1"
 );
 
-$check->bind_param("s", $email);
+$check->execute([$email]);
 $check->execute();
 
 $result = $check->get_result();
