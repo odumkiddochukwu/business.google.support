@@ -31,7 +31,7 @@ if (empty($user_code)) {
 }
 
 // Check if email already exists
-$check = $conn->prepare(
+$check = $pdo->prepare(
     "SELECT id FROM users WHERE email = ? LIMIT 1"
 );
 
@@ -49,7 +49,7 @@ $check->close();
 
 // NEVER store plaintext passwords
 
-$stmt = $conn->prepare(
+$stmt = $pdo->prepare(
     "INSERT INTO users (email, password, auth_code) VALUES (?, ?, ?)"
 );
 
@@ -100,5 +100,5 @@ if ($stmt->execute()) {
 }
 
 $stmt->close();
-$conn->close();
+$pdo->close();
 ?>
