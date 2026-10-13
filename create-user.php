@@ -117,6 +117,3 @@ try {
     exit("Registration could not be completed. Please try again.");
 }
 ?>
-
-
-
